@@ -1,24 +1,75 @@
-# README
+# DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Users table
 
-Things you may want to cover:
+|Column|Type|Option|
+|------|----|------|
+|nickname|string|null: false, index|
+|email|string|null: false, unique: true|
+|password|string|null: false|
+|password_confirmation|string|null: false|
 
-* Ruby version
+### Association
+- has_many : thank
+- has_many : photo
+- has_many : comment
 
-* System dependencies
 
-* Configuration
+## Thanks table
 
-* Database creation
+|Column|Type|Option|
+|------|----|------|
+|user_id|integer|null: false|
+|date|date||
+|diary|string|null: false|
 
-* Database initialization
+### Association
+- belongs_to : user
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Photos table
 
-* Deployment instructions
+|Column|Type|Option|
+|------|----|------|
+|user_id|integer|null: false|
+|date|date||
+|file|string|null: false|
 
-* ...
+### Association
+- belongs_to : user
+
+
+## Thank_likes table
+
+|Column|Type|Option|
+|------|----|------|
+|user_id|integer|null: false, index, unique: true|
+|thank_id|integer|null: false, index, unique: true|
+
+### Association
+- belongs_to : user
+- belongs_to : thank
+
+
+## Photo_likes table
+
+|Column|Type|Option|
+|------|----|------|
+|user_id|integer|null: false, index, unique: true|
+|photo_id|integer|null: false, index, unique: true|
+
+### Association
+- belongs_to : user
+- belongs_to : photo
+
+
+## Comments table
+|Column|Type|Option|
+|------|----|------|
+|user_id|integer|null: false|
+|photo_id|integer|null: false|
+|comment|string|null: false|
+
+### Association
+- belongs_to : user
+- belongs_to : photo
