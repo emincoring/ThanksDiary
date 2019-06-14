@@ -33,7 +33,7 @@
 |------|----|------|
 |user_id|integer|null: false|
 |date|date||
-|file|string|null: false|
+|image|string|null: false|
 
 ### Association
 - belongs_to : user
