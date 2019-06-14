@@ -21,7 +21,7 @@
 |------|----|------|
 |user_id|integer|null: false|
 |date|date||
-|diary|string|null: false|
+|diary|text|null: false|
 
 ### Association
 - belongs_to : user
