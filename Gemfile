@@ -65,3 +65,4 @@ gem 'slim-rails'
 gem 'html2slim'
 gem "simple_calendar", "~> 2.0"
 gem 'bootstrap'
+gem 'devise'
